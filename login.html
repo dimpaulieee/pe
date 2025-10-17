@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Tracker - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>My Personal Tracker</h1>
+                <div class="logo-animation">
+                    <div class="pulse-circle"></div>
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <p>Your 28-Day Fitness Journey</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <label for="username"><i class="fas fa-user"></i> Username:</label>
+                    <input type="text" id="username" required placeholder="Enter your username">
+                </div>
+                
+                <div class="input-group">
+                    <label for="weight"><i class="fas fa-weight"></i> Current Weight (kg):</label>
+                    <input type="number" id="weight" required placeholder="Enter your weight">
+                </div>
+                
+                <div class="input-group">
+                    <label for="height"><i class="fas fa-ruler-vertical"></i> Height (cm):</label>
+                    <input type="number" id="height" required placeholder="Enter your height">
+                </div>
+                
+                <div class="input-group">
+                    <label for="goal"><i class="fas fa-bullseye"></i> Primary Goal:</label>
+                    <select id="goal" required>
+                        <option value="">Select your goal</option>
+                        <option value="build-muscle">Build Muscle</option>
+                        <option value="lose-fat">Lose Fat</option>
+                        <option value="improve-endurance">Improve Endurance</option>
+                        <option value="general-fitness">General Fitness</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-rocket"></i> Start My Journey
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <div class="fact-carousel">
+                    <div class="fact active">
+                        💪 <strong>Did You Know?</strong> It takes 21 days to form a habit, and 90 days to create a lifestyle!
+                    </div>
+                    <div class="fact">
+                        🍎 <strong>Fitness Fact:</strong> Muscle burns more calories at rest than fat does!
+                    </div>
+                    <div class="fact">
+                        ⏰ <strong>Pro Tip:</strong> Morning workouts can boost your metabolism for the entire day!
+                    </div>
+                </div>
+                
+                <div class="creator-info">
+                    <p>Created by <strong>Paul Andrei C. Timpog</strong></p>
+                    <p>Student from PhilSCA-NAAP BAB-Palmayo Campus</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Tracker - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="logo">My Personal Tracker</h1>
+                <span class="user-welcome" id="userWelcome">Welcome, User!</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="#bmi-section" class="nav-link">BMI Tracker</a></li>
+                <li><a href="#goals-section" class="nav-link">My Goals</a></li>
+                <li><a href="#activity-section" class="nav-link">Activity Log</a></li>
+                <li><a href="#food-section" class="nav-link">Food Diary</a></li>
+                <li><a href="#progress-section" class="nav-link">Progress</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-secondary" onclick="showSummaryModal()">
+                    <i class="fas fa-chart-line"></i> Summary
+                </button>
+                <button class="btn-secondary" onclick="exportAllData()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Overview -->
+    <section id="dashboard" class="section">
+        <div class="dashboard-header">
+            <h2>Your 28-Day Fitness Journey</h2>
+            <div class="progress-tracker">
+                <div class="days-progress">
+                    <span id="currentDay">Day 1</span> of 28
+                </div>
+                <div class="progress-bar-large">
+                    <div class="progress-fill-large" id="journeyProgress"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card" data-aos="fade-up">
+                <div class="stat-icon">
+                    <i class="fas fa-weight"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="currentWeight">-</h3>
+                    <p>Current Weight</p>
+                </div>
+                <div class="stat-trend" id="weightTrend">
+                    <i class="fas fa-minus"></i>
+                </div>
+            </div>
+
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="totalWorkouts">0</h3>
+                    <p>Workouts Completed</p>
+                </div>
+            </div>
+
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="mealsLogged">0</h3>
+                    <p>Meals Logged</p>
+                </div>
+            </div>
+
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="consistencyScore">0%</h3>
+                    <p>Consistency</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Fact -->
+        <div class="daily-fact" data-aos="fade-in">
+            <div class="fact-header">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Daily Fitness Tip</h4>
+            </div>
+            <p id="dailyFact">Loading today's fitness tip...</p>
+        </div>
+    </section>
+
+    <!-- Rest of your existing sections (BMI, Goals, Activity, Food) go here -->
+    <!-- I'll include the key modified sections -->
+
+    <!-- Progress Summary Section -->
+    <section id="progress-section" class="section">
+        <h2>Your Progress Summary</h2>
+        <div class="progress-cards">
+            <div class="progress-card" data-aos="zoom-in">
+                <h3><i class="fas fa-chart-line"></i> Weekly Progress</h3>
+                <div id="weeklyChart" class="progress-chart">
+                    <!-- Chart will be generated here -->
+                </div>
+            </div>
+            
+            <div class="progress-card" data-aos="zoom-in" data-aos-delay="200">
+                <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                <div id="achievementsList" class="achievements-grid">
+                    <!-- Achievements will be populated here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-actions">
+            <button class="btn-primary" onclick="generateFullReport()">
+                <i class="fas fa-file-pdf"></i> Generate Full Report
+            </button>
+            <button class="btn-secondary" onclick="saveToGoogleDrive()">
+                <i class="fab fa-google-drive"></i> Save to Google Drive
+            </button>
+        </div>
+    </section>
+
+    <!-- Summary Modal -->
+    <div id="summaryModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-modal" onclick="closeSummaryModal()">&times;</span>
+            <h2>28-Day Journey Summary</h2>
+            <div id="summaryContent" class="summary-content">
+                <!-- Summary will be generated here -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="downloadSummary()">
+                    <i class="fas fa-download"></i> Download Summary
+                </button>
+                <button class="btn-secondary" onclick="closeSummaryModal()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Creator Footer -->
+    <footer class="creator-footer">
+        <p>Created with ❤️ by <strong>Paul Andrei C. Timpog</strong></p>
+        <p>PhilSCA-NAAP BAB-Palmayo Campus Student</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
